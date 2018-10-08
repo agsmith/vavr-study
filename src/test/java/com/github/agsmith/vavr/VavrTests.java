@@ -55,4 +55,16 @@ public class VavrTests {
         assertEquals(deq._2, Queue.of(2,3));
 
     }
+
+    @Test
+    public void OptionTest() {
+        Option<Integer> option1 = Some(1);
+        Option<Integer> option2 = Option.None;
+
+        assertEquals(option1, Some(1));
+        assertEquals(option2, Option.None);
+
+
+    }
 }
+
