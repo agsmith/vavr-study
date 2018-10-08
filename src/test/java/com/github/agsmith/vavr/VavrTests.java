@@ -59,10 +59,10 @@ public class VavrTests {
     @Test
     public void OptionTest() {
         Option<Integer> option1 = Some(1);
-        Option<Integer> option2 = Option.None;
+        Option<Integer> option2 = Option.of(null);
 
         assertEquals(option1, Some(1));
-        assertEquals(option2, Option.None);
+        assertEquals(option2.toString(), "None");
 
 
     }
