@@ -5,6 +5,7 @@ import io.vavr.Tuple2;
 import io.vavr.collection.List;
 
 import io.vavr.collection.Queue;
+import io.vavr.control.Either;
 import io.vavr.control.Option;
 import org.junit.Test;
 
@@ -49,6 +50,7 @@ public class VavrTests {
 
         Tuple2<Integer, Queue<Integer>> deq = queue1.dequeue();
 
+
         assertEquals(queue1, Queue.of(1,2,3));
         assertEquals(queue2, Queue.of(1,2,3,4,5));
         assertEquals(deq._1, Integer.valueOf(1));
@@ -65,6 +67,16 @@ public class VavrTests {
         assertEquals(option2.toString(), "None");
 
 
+    }
+
+    @Test
+    public void EitherTest() {
+        Either<String, Integer> e1 = Either.right(42);
+        Either<String, Integer> e2 = Either.left("Error");
+
+        assertEquals(e1.right().get(), Integer.valueOf(42));
+        assertEquals(e2.left().get(), "Error");
+        
     }
 }
 
