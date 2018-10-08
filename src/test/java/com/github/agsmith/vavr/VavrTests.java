@@ -76,7 +76,7 @@ public class VavrTests {
 
         assertEquals(e1.right().get(), Integer.valueOf(42));
         assertEquals(e2.left().get(), "Error");
-        
+
     }
 }
 
