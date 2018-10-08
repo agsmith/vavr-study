@@ -7,13 +7,14 @@ import io.vavr.collection.List;
 import io.vavr.collection.Queue;
 import io.vavr.control.Either;
 import io.vavr.control.Option;
+import io.vavr.control.Try;
 import org.junit.Test;
 
 import java.util.Optional;
 
 import static io.vavr.API.Some;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
 
 
 public class VavrTests {
@@ -77,6 +78,14 @@ public class VavrTests {
         assertEquals(e1.right().get(), Integer.valueOf(42));
         assertEquals(e2.left().get(), "Error");
 
+    }
+
+    @Test
+    public void TryTest() {
+
+        Try<Integer> result = Try.of(() -> 1 / 0);
+
+        assertTrue(result.isFailure());
     }
 }
 
