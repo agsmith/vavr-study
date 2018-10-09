@@ -81,11 +81,18 @@ public class VavrTests {
     }
 
     @Test
-    public void TryTest() {
+    public void TryFail() {
 
         Try<Integer> result = Try.of(() -> 1 / 0);
 
         assertTrue(result.isFailure());
+    }
+    @Test
+    public void TrySuccess() {
+
+        Try<Integer> result = Try.of(() -> 1 / 1);
+
+        assertTrue(result.isSuccess());
     }
 }
 
