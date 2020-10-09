@@ -3,7 +3,6 @@ package com.github.agsmith.vavr;
 import io.vavr.Tuple;
 import io.vavr.Tuple2;
 import io.vavr.collection.List;
-
 import io.vavr.collection.Queue;
 import io.vavr.control.Either;
 import io.vavr.control.Option;
@@ -12,7 +11,7 @@ import org.junit.Test;
 
 import java.util.Optional;
 
-import static io.vavr.API.Some;
+import static io.vavr.API.*;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -94,6 +93,29 @@ public class VavrTests {
         Try<Integer> result = Try.of(() -> 1 / 1);
 
         assertTrue(result.isSuccess());
+    }
+
+    @Test
+    public void PatternMatchIntToString() {
+        int i = 1;
+
+        String s = Match(i).of(
+            Case($(1), "one"),
+            Case($(2), "two"),
+            Case($(), "?")
+        );
+        assertEquals(s, "one");
+    }
+    @Test
+    public void PatternMatchIntToStringBaseCase() {
+        int i = 3;
+
+        String s = Match(i).of(
+            Case($(1), "one"),
+            Case($(2), "two"),
+            Case($(), "?")
+        );
+        assertEquals(s, "?");
     }
 }
 
