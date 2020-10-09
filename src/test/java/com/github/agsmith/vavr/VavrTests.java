@@ -71,12 +71,12 @@ public class VavrTests {
     @Test
     public void EitherLeft() {
         Either<String, Integer> e2 = Either.left("Error");
-        assertEquals(e2.left().get(), "Error");
+        assertEquals(e2.getLeft(), "Error");
     }
     @Test
     public void EitherRight() {
         Either<String, Integer> e1 = Either.right(42);
-        assertEquals(e1.right().get(), Integer.valueOf(42));
+        assertEquals(e1.get(), Integer.valueOf(42));
 
     }
 
